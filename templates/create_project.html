@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Project</title>
+</head>
+<body>
+    <h2>Add New Project
+                    <form action="/" method="get" style="display: inline;">
+                        <button type="submit" >Home Page</button>
+                    </form>
+    </h2>
+
+
+    <form action="/create_project" method="POST">
+        <label for="project_name">Project Name:</label><br>
+        <input type="text" id="project_name" name="project_name"><br><br>
+        <input type="submit" value="Create Project">
+    </form>
+    {% if success_message %}
+    <p style="color: green;">{{ success_message }}</p>
+    {% endif %}
+</body>
+</html>

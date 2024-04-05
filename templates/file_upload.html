@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Metadata</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a file from your desktop</h1>
+    <form id="fileForm">
+        <input type="file" id="fileInput" name="fileInput">
+        <input type="submit" value="Get Metadata">
+    </form>
+    <div id="metadata"></div>
+
+    <script>
+        document.getElementById('fileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+
+            if (file) {
+                var metadata = 'Name: ' + file.name + '<br>';
+                metadata += 'Size: ' + file.size + ' bytes<br>';
+                metadata += 'Type: ' + file.type + '<br>';
+                metadata += 'Last Modified: ' + file.lastModifiedDate + '<br>';
+
+                document.getElementById('metadata').innerHTML = metadata;
+            } else {
+                document.getElementById('metadata').innerHTML = 'No file selected';
+            }
+        });
+    </script>
+</body>
+</html>
